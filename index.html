@@ -105,23 +105,6 @@
 
         .section-title { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--gold); margin-bottom: 30px; text-align: center; }
 
-        .events-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 30px auto;
-        }
-
-        .event-box {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            border-top: 5px solid var(--gold);
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
         /* --- Map Styling --- */
         .map-container {
             margin-top: 30px;
@@ -139,49 +122,12 @@
         #petals-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
         .petal { position: absolute; background: #ff4d4d; border-radius: 150% 0 150% 0; opacity: 0.6; animation: fall linear infinite; }
 
-        /* --- Form --- */
-        .wishes-form { display: flex; flex-direction: column; gap: 15px; }
-        .wishes-form input, .wishes-form textarea {
-            padding: 15px;
-            border: 1px solid var(--gold);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            font-family: inherit;
-        }
-
-        #thank-you-popup {
-            display: none;
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            border: 3px solid var(--gold);
-            z-index: 10001;
-            text-align: center;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
-            width: 90%; max-width: 400px;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: var(--deep-maroon);
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            font-family: 'Cinzel Decorative', serif;
-            transition: 0.4s;
-        }
+        footer { background: var(--deep-maroon); color: var(--gold); padding: 60px 20px; text-align: center; }
 
         @keyframes fall {
             0% { transform: translateY(-10%) rotate(0deg); }
             100% { transform: translateY(110%) rotate(360deg); }
         }
-
-        footer { background: var(--deep-maroon); color: var(--gold); padding: 60px 20px; text-align: center; }
     </style>
 </head>
 <body>
@@ -203,9 +149,7 @@
         <div id="petals-container"></div>
         <div class="animate__animated animate__fadeIn" style="z-index: 10;">
             <p class="hindi">॥ श्री गणेशाय नमः ॥</p>
-            <p class="royal-font" style="letter-spacing: 4px; font-size: 0.9rem;">TOGETHER WITH THEIR FAMILIES</p>
             <h1 class="hero-names">Vipin & Roopa</h1>
-            <p class="hindi" style="font-size: 1.8rem; color: var(--gold);">मांगलिक कार्यक्रम</p>
             <p class="royal-font" style="margin-top: 20px; letter-spacing: 2px;">APRIL 2026 • LUCKNOW</p>
         </div>
     </section>
@@ -229,16 +173,6 @@
         </div>
     </section>
 
-    <section id="events" style="background: var(--champagne);">
-        <h2 class="section-title">Auspicious Programs</h2>
-        <div class="events-container">
-            <div class="event-box"><h4 class="royal-font">Tel Pujan</h4><p>18 April 2026<br>Saturday</p></div>
-            <div class="event-box"><h4 class="royal-font">Matri Pujan</h4><p>19 April 2026<br>Sunday</p></div>
-            <div class="event-box" style="background: var(--deep-maroon); color: var(--gold);"><h4 class="royal-font">Shubh Vivah</h4><p>20 April 2026<br>Monday</p></div>
-            <div class="event-box"><h4 class="royal-font">Vadhu Aagaman</h4><p>21 April 2026<br>Tuesday</p></div>
-        </div>
-    </section>
-
     <section id="reception">
         <div class="glass-card" style="background: white; border: 2px solid var(--gold);">
             <h2 class="section-title">Grand Reception</h2>
@@ -248,7 +182,7 @@
                 <p style="margin-top: 15px;">Samudaik Kendra (Community Center),<br>Virat Khand-3, Gomti Nagar, Lucknow.</p>
                 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.721471378121!2d81.00262277524022!3d26.848834976685816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be293526645db%3A0xc39281a179634e0!2sSamudayik%20Kendra%2C%20Virat%20Khand-3%2C%20Gomti%20Nagar%2C%20Lucknow!5e0!3m2!1sen!2sin!4v1712918248316!5m2!1sen!2sin" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps?q=Samudaik+Kendra+Virat+Khand-3+Gomti+Nagar+Lucknow&output=embed" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -260,16 +194,10 @@
             <form id="wishesForm" action="https://formspree.io/f/mpqkazpl" method="POST" class="wishes-form">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <textarea name="message" placeholder="Your Blessing / Message" required></textarea>
-                <button type="submit" class="btn-gold">Send Blessings</button>
+                <button type="submit" class="btn-gold" style="background: var(--gold); color: var(--deep-maroon); padding: 15px 40px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer;">Send Blessings</button>
             </form>
         </div>
     </section>
-
-    <div id="thank-you-popup">
-        <h2 class="calligraphy" style="font-size: 3rem; color: var(--gold);">Thank You!</h2>
-        <p style="margin: 20px 0;">Your warm wishes have been received with love.</p>
-        <button class="btn-gold" onclick="closePopup()">Close</button>
-    </div>
 
     <footer>
         <div style="max-width: 800px; margin: auto;">
@@ -295,22 +223,6 @@
             if (audio.paused) { audio.play(); musicBtn.innerHTML = "🔊"; }
             else { audio.pause(); musicBtn.innerHTML = "🔇"; }
         }
-
-        const form = document.getElementById('wishesForm');
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-                document.getElementById('thank-you-popup').style.display = 'block';
-                form.reset();
-            } else { alert("Failed to send wish. Please try again."); }
-        };
-
-        function closePopup() { document.getElementById('thank-you-popup').style.display = 'none'; }
 
         function createPetal() {
             const container = document.getElementById('petals-container');
