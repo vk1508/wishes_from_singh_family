@@ -122,6 +122,19 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
+        /* --- Map Styling --- */
+        .map-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            display: block;
+        }
+
         /* --- Petals --- */
         #petals-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
         .petal { position: absolute; background: #ff4d4d; border-radius: 150% 0 150% 0; opacity: 0.6; animation: fall linear infinite; }
@@ -201,13 +214,14 @@
         <div class="glass-card">
             <h2 class="section-title">The Royal Couple</h2>
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
-                <div style="flex: 1; min-width: 260px;">
-                    <h3 class="royal-font" style="color: var(--gold);">चि. विपिन कुमार सिंह</h3>
+                <div style="flex: 1; min-width: 260px; text-align: center;">
+                    <h3 class="royal-font" style="color: var(--gold); font-size: 1.8rem;">चि. विपिन कुमार सिंह</h3>
                     <p>(सुपुत्र श्रीमती माधुरी सिंह एवं श्री राना प्रताप सिंह)</p>
                     <p style="font-size: 0.85rem; opacity: 0.7;">सुपौत्र स्मृतिशेष श्रीमती द्रौपदी सिंह एवं स्मृतिशेष श्री राम अंजोर सिंह</p>
+                </div>
                 <div class="calligraphy" style="font-size: 3rem; color: var(--gold); align-self: center;">संग</div>
-                <div style="flex: 1; min-width: 260px;">
-                    <h3 class="royal-font" style="color: var(--gold);">आयु. कु. रूपा सिंह</h3>
+                <div style="flex: 1; min-width: 260px; text-align: center;">
+                    <h3 class="royal-font" style="color: var(--gold); font-size: 1.8rem;">आयु. कु. रूपा सिंह</h3>
                     <p>(सुपुत्री श्रीमती शान्ति सिंह एवं श्री कृष्ण मुरारी सिंह)</p>
                     <p style="font-size: 0.85rem; opacity: 0.7;">सुपौत्री स्मृतिशेष श्रीमती कमला देवी एवं स्मृतिशेष श्री श्याम सिंह</p>
                 </div>
@@ -232,6 +246,10 @@
             <div style="text-align: center; margin-top: 20px;">
                 <p><strong>22 April 2026 (Wednesday) | 7:00 PM Onwards</strong></p>
                 <p style="margin-top: 15px;">Samudaik Kendra (Community Center),<br>Virat Khand-3, Gomti Nagar, Lucknow.</p>
+                
+                <div class="map-container">
+                    <iframe src="http://googleusercontent.com/maps.google.com/2" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </section>
