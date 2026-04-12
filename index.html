@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vipin & Roopa | A Royal Wedding Invitation</title>
+    <title>Vipin & Roopa | Royal Wedding Invitation</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Tiro+Devanagari+Hindi&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -48,7 +48,7 @@
         }
         #intro-curtain.open { transform: translateY(-100%); pointer-events: none; }
 
-        /* --- Music Toggle --- */
+        /* --- Music Control --- */
         #music-btn {
             position: fixed;
             bottom: 25px;
@@ -61,15 +61,22 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 1001;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border: 2px solid white;
             font-size: 20px;
         }
 
-        /* --- Sections --- */
-        section { position: relative; width: 100%; padding: 80px 20px; overflow: hidden; }
+        /* --- Section Control (Fixes Overlapping) --- */
+        section {
+            position: relative;
+            width: 100%;
+            padding: 100px 20px;
+            display: block;
+            clear: both;
+        }
 
+        /* Hero Styling */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
@@ -83,6 +90,7 @@
             align-items: center;
             text-align: center;
             color: var(--ivory);
+            padding: 0;
         }
 
         .hero-names {
@@ -92,42 +100,100 @@
             margin: 15px 0;
         }
 
+        /* Cards and Elements */
         .glass-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 20px;
-            padding: clamp(20px, 5vw, 50px);
+            padding: clamp(30px, 6vw, 60px);
             max-width: 900px;
             margin: 0 auto;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .section-title { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--gold); margin-bottom: 30px; text-align: center; }
+        .section-title { 
+            font-size: clamp(2.5rem, 5vw, 3.8rem); 
+            color: var(--gold); 
+            margin-bottom: 40px; 
+            text-align: center; 
+        }
 
-        /* --- Map Styling --- */
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .event-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-top: 5px solid var(--gold);
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+        .event-box:hover { transform: translateY(-5px); }
+
+        /* Map UI */
         .map-container {
-            margin-top: 30px;
+            margin-top: 40px;
             border-radius: 15px;
             overflow: hidden;
             border: 2px solid var(--gold);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
-        .map-container iframe {
+        .map-container iframe { width: 100%; display: block; border: 0; }
+
+        /* Forms */
+        .wishes-form { display: flex; flex-direction: column; gap: 18px; text-align: left; }
+        .wishes-form input, .wishes-form textarea {
+            padding: 16px;
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            font-family: inherit;
             width: 100%;
-            display: block;
         }
 
-        /* --- Petals --- */
+        .btn-gold {
+            background: var(--gold);
+            color: var(--deep-maroon);
+            padding: 16px 45px;
+            border: none;
+            border-radius: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Cinzel Decorative', serif;
+            transition: 0.4s;
+            display: inline-block;
+        }
+        .btn-gold:hover { background: #fff; transform: scale(1.05); }
+
+        #thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid var(--gold);
+            z-index: 10005;
+            text-align: center;
+            box-shadow: 0 0 100px rgba(0,0,0,0.6);
+            width: 90%; max-width: 450px;
+        }
+
+        /* Animations */
         #petals-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
         .petal { position: absolute; background: #ff4d4d; border-radius: 150% 0 150% 0; opacity: 0.6; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(-10%) rotate(0deg); } 100% { transform: translateY(110%) rotate(360deg); } }
 
-        footer { background: var(--deep-maroon); color: var(--gold); padding: 60px 20px; text-align: center; }
-
-        @keyframes fall {
-            0% { transform: translateY(-10%) rotate(0deg); }
-            100% { transform: translateY(110%) rotate(360deg); }
-        }
+        footer { background: var(--deep-maroon); color: var(--gold); padding: 80px 20px; text-align: center; }
     </style>
 </head>
 <body>
@@ -140,49 +206,62 @@
 
     <div id="intro-curtain">
         <p class="hindi">॥ श्री गणेशाय नमः ॥</p>
-        <h2 class="animate__animated animate__fadeInUp">Welcome to a Royal Wedding</h2>
-        <h1 class="royal-font" style="font-size: clamp(1.5rem, 6vw, 3rem); margin: 20px 0;">VIPIN & ROOPA</h1>
+        <h2 class="animate__animated animate__fadeInUp" style="margin-top:10px;">Welcome to a Royal Wedding</h2>
+        <h1 class="royal-font" style="font-size: clamp(2rem, 8vw, 3.5rem); margin: 25px 0;">VIPIN & ROOPA</h1>
         <button class="btn-gold" onclick="openCurtain()">Experience the Magic</button>
     </div>
 
     <section class="hero">
         <div id="petals-container"></div>
-        <div class="animate__animated animate__fadeIn" style="z-index: 10;">
+        <div class="animate__animated animate__fadeIn" style="z-index: 10; padding: 20px;">
             <p class="hindi">॥ श्री गणेशाय नमः ॥</p>
+            <p class="royal-font" style="letter-spacing: 4px; font-size: 0.95rem; margin-top:10px;">TOGETHER WITH THEIR FAMILIES</p>
             <h1 class="hero-names">Vipin & Roopa</h1>
-            <p class="royal-font" style="margin-top: 20px; letter-spacing: 2px;">APRIL 2026 • LUCKNOW</p>
+            <p class="hindi" style="font-size: 1.8rem; color: var(--gold);">मांगलिक कार्यक्रम</p>
+            <p class="royal-font" style="margin-top: 25px; letter-spacing: 2px;">APRIL 2026 • LUCKNOW</p>
         </div>
     </section>
 
     <section id="couple-details">
         <div class="glass-card">
             <h2 class="section-title">The Royal Couple</h2>
-            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
-                <div style="flex: 1; min-width: 260px; text-align: center;">
-                    <h3 class="royal-font" style="color: var(--gold); font-size: 1.8rem;">चि. विपिन कुमार सिंह</h3>
-                    <p>(सुपुत्र श्रीमती माधुरी सिंह एवं श्री राना प्रताप सिंह)</p>
-                    <p style="font-size: 0.85rem; opacity: 0.7;">सुपौत्र स्मृतिशेष श्रीमती द्रौपदी सिंह एवं स्मृतिशेष श्री राम अंजोर सिंह</p>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 45px;">
+                <div style="flex: 1; min-width: 280px; text-align: center;">
+                    <h3 class="royal-font" style="color: var(--gold); font-size: 1.8rem; margin-bottom:10px;">चि. विपिन कुमार सिंह</h3>
+                    <p><strong>सुपुत्र:</strong> श्रीमती माधुरी सिंह एवं श्री राणा प्रताप सिंह</p>
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top:5px;"><strong>सुपौत्र:</strong> स्मृतिशेष श्रीमती द्रौपदी सिंह एवं स्मृतिशेष श्री राम अंजोर सिंह</p>
                 </div>
-                <div class="calligraphy" style="font-size: 3rem; color: var(--gold); align-self: center;">संग</div>
-                <div style="flex: 1; min-width: 260px; text-align: center;">
-                    <h3 class="royal-font" style="color: var(--gold); font-size: 1.8rem;">आयु. कु. रूपा सिंह</h3>
-                    <p>(सुपुत्री श्रीमती शान्ति सिंह एवं श्री कृष्ण मुरारी सिंह)</p>
-                    <p style="font-size: 0.85rem; opacity: 0.7;">सुपौत्री स्मृतिशेष श्रीमती कमला देवी एवं स्मृतिशेष श्री श्याम सिंह</p>
+                <div class="calligraphy" style="font-size: 3.5rem; color: var(--gold); align-self: center;">संग</div>
+                <div style="flex: 1; min-width: 280px; text-align: center;">
+                    <h3 class="royal-font" style="color: var(--gold); font-size: 1.8rem; margin-bottom:10px;">आयु. कु. रूपा सिंह</h3>
+                    <p><strong>सुपुत्री:</strong> श्रीमती शान्ति सिंह एवं श्री कृष्ण मुरारी सिंह</p>
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top:5px;"><strong>सुपौत्री:</strong> स्मृतिशेष श्रीमती कमला देवी एवं स्मृतिशेष श्री श्याम सिंह</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="events" style="background: var(--champagne);">
+        <h2 class="section-title">Auspicious Programs</h2>
+        <div class="events-container">
+            <div class="event-box"><h4 class="royal-font">Tel Pujan</h4><p>18 April 2026<br>Saturday</p></div>
+            <div class="event-box"><h4 class="royal-font">Matru Pujan</h4><p>19 April 2026<br>Sunday</p></div>
+            <div class="event-box" style="background: var(--deep-maroon); color: var(--gold); border:none;"><h4 class="royal-font">Shubh Vivah</h4><p>20 April 2026<br>Monday</p></div>
+            <div class="event-box"><h4 class="royal-font">Vadhu Aagaman</h4><p>21 April 2026<br>Tuesday</p></div>
         </div>
     </section>
 
     <section id="reception">
         <div class="glass-card" style="background: white; border: 2px solid var(--gold);">
             <h2 class="section-title">Grand Reception</h2>
-            <p class="hindi" style="font-size: 1.5rem; text-align: center;">॥ आशीर्वाद समारोह एवं प्रीतिभोज ॥</p>
-            <div style="text-align: center; margin-top: 20px;">
-                <p><strong>22 April 2026 (Wednesday) | 7:00 PM Onwards</strong></p>
-                <p style="margin-top: 15px;">Samudaik Kendra (Community Center),<br>Virat Khand-3, Gomti Nagar, Lucknow.</p>
+            <p class="hindi" style="font-size: 1.6rem; text-align: center;">॥ आशीर्वाद समारोह एवं प्रीतिभोज ॥</p>
+            <div style="text-align: center; margin-top: 25px; line-height: 2;">
+                <p><strong>22 April 2026 (Wednesday)</strong></p>
+                <p><strong>7:00 PM Onwards</strong></p>
+                <p style="margin-top: 15px; font-size: 1.1rem;">Samudaik Kendra (Community Center),<br>Virat Khand-3, Gomti Nagar, Lucknow.</p>
                 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps?q=Samudaik+Kendra+Virat+Khand-3+Gomti+Nagar+Lucknow&output=embed" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m18!1m12!1m3!1d3559.814324151703!2d80.999650!3d26.845830!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be357e62a8497%3A0x67923485059d084!2sVirat%20Khand-3%20Community%20Center!5e0!3m2!1sen!2sin!4v1712920000000" height="450" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -191,20 +270,31 @@
     <section id="wishes" style="background: var(--champagne);">
         <h2 class="section-title">Wishes & Blessings</h2>
         <div class="glass-card" style="background: white;">
+            <p style="text-align: center; margin-bottom: 25px;">Your warm blessings are the greatest gift to us.</p>
             <form id="wishesForm" action="https://formspree.io/f/mpqkazpl" method="POST" class="wishes-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <textarea name="message" placeholder="Your Blessing / Message" required></textarea>
-                <button type="submit" class="btn-gold" style="background: var(--gold); color: var(--deep-maroon); padding: 15px 40px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer;">Send Blessings</button>
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <textarea name="message" placeholder="Write your message or blessing here..." required></textarea>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-gold">Send Blessings</button>
+                </div>
             </form>
         </div>
     </section>
 
+    <div id="thank-you-popup">
+        <h2 class="calligraphy" style="font-size: 3.2rem; color: var(--gold);">Thank You!</h2>
+        <p style="margin: 20px 0; font-weight: 600;">Your wishes have been received with love.</p>
+        <button class="btn-gold" onclick="closePopup()">Close</button>
+    </div>
+
     <footer>
-        <div style="max-width: 800px; margin: auto;">
-            <h3 class="hindi">दर्शनाभिलाषी:</h3>
-            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Awadhesh Singh, Anil Singh, Ajay Singh, Pintu Singh, Vinay Singh, Pradeep Singh, Sandeep Singh, Rajnish Singh, Ojas, Aadvik, Rajan Singh, Aman, Ansh, Ridhima, Sakshi, एवं समस्त सिंह परिवार व मित्रगण.</p>
-            <h3 class="hindi">विनीत:</h3>
-            <p>श्री राना प्रताप सिंह एवं श्रीमती माधुरी सिंह</p>
+        <div style="max-width: 900px; margin: auto;">
+            <h3 class="hindi" style="font-size: 1.6rem; margin-bottom: 15px;">दर्शनाभिलाषी:</h3>
+            <p style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 45px; word-spacing: 2px;">
+                Awadhesh Singh, Anil Singh, Ajay Singh, Pintu Singh, Vinay Singh, Pradeep Singh, Sandeep Singh, Rajnish Singh, Ojas, Aadvik, Rajan Singh, Aman, Ansh, Ridhima, Sakshi, एवं समस्त सिंह परिवार व मित्रगण.
+            </p>
+            <h3 class="hindi" style="font-size: 1.6rem; margin-bottom: 10px;">विनीत:</h3>
+            <p style="font-size: 1.1rem; letter-spacing: 1px;">श्री राणा प्रताप सिंह एवं श्रीमती माधुरी सिंह</p>
         </div>
     </footer>
 
@@ -224,8 +314,25 @@
             else { audio.pause(); musicBtn.innerHTML = "🔇"; }
         }
 
+        const form = document.getElementById('wishesForm');
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                document.getElementById('thank-you-popup').style.display = 'block';
+                form.reset();
+            } else { alert("Could not send wishes. Please check your connection."); }
+        };
+
+        function closePopup() { document.getElementById('thank-you-popup').style.display = 'none'; }
+
         function createPetal() {
             const container = document.getElementById('petals-container');
+            if(!container) return;
             const petal = document.createElement('div');
             petal.className = 'petal';
             const size = Math.random() * 12 + 8 + 'px';
@@ -236,7 +343,7 @@
             container.appendChild(petal);
             setTimeout(() => { petal.remove(); }, 6000);
         }
-        setInterval(createPetal, 400);
+        setInterval(createPetal, 450);
         document.body.style.overflowY = "hidden";
     </script>
 </body>
