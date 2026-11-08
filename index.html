@@ -888,7 +888,7 @@
             </p>
             <div class="form-group">
                 <label>Owner Secret PIN</label>
-                <input type="password" id="ownerPinInput" placeholder="Enter PIN (Default: 2026)" onkeydown="if(event.key==='Enter') verifyOwnerPin()">
+                <input type="password" id="ownerPinInput" placeholder="Enter Secret PIN to unlock" onkeydown="if(event.key==='Enter') verifyOwnerPin()">
             </div>
             <div class="modal-actions">
                 <button class="btn" onclick="closeOwnerLogin()">Cancel</button>
@@ -942,7 +942,7 @@
            1. OWNER CONFIGURATION & OPTIONAL CLOUD WEBHOOK SYNC
            ========================================================= */
         const CONFIG = {
-            ownerPin: "2026", // <--- CHANGE YOUR SECRET OWNER PIN HERE
+            ownerPin: "161200", // <--- CHANGE YOUR SECRET OWNER PIN HERE
             cloudWebhookUrl: "", // <--- OPTIONAL: Paste a Google Apps Script / Make.com / ntfy.sh URL here to sync across all phones!
             defaultRecipient: "Dear Friends & Family",
             defaultSender: "Singh's Family ❤️",
