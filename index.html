@@ -34,7 +34,7 @@
             position: relative;
         }
 
-        /* Interactive Fireworks & Crackers Canvas */
+        /* Fireworks Canvas */
         #fireworksCanvas {
             position: fixed;
             top: 0;
@@ -46,7 +46,6 @@
             cursor: crosshair;
         }
 
-        /* Screen Shake Effect for Ladi / Sutli Bomb */
         @keyframes shake {
             0%, 100% { transform: translate(0, 0); }
             20% { transform: translate(-6px, 5px); }
@@ -77,13 +76,13 @@
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        /* Top Decorative Marigold & Mango Leaf Toran */
+        /* Top Decorative Toran */
         .toran {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 36px;
+            height: 34px;
             background: repeating-linear-gradient(
                 90deg,
                 var(--orange) 0px,
@@ -100,10 +99,10 @@
             box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5);
         }
 
-        /* Hanging Festive Lanterns (Kandils) */
+        /* Hanging Lanterns */
         .hanging-kandils {
             position: fixed;
-            top: 20px;
+            top: 18px;
             left: 0;
             width: 100%;
             display: flex;
@@ -114,14 +113,13 @@
         }
 
         .kandil {
-            width: 38px;
-            height: 60px;
+            width: 34px;
+            height: 54px;
             background: linear-gradient(135deg, var(--magenta), var(--orange), var(--gold));
             clip-path: polygon(25% 0%, 75% 0%, 100% 30%, 100% 70%, 75% 100%, 25% 100%, 0% 70%, 0% 30%);
             box-shadow: 0 0 25px var(--orange);
             animation: swing 3.5s ease-in-out infinite alternate;
             transform-origin: top center;
-            position: relative;
         }
 
         .kandil:nth-child(even) {
@@ -134,7 +132,7 @@
             100% { transform: rotate(7deg); }
         }
 
-        /* Main Foreground Container */
+        /* Main Container */
         .container {
             position: relative;
             z-index: 2;
@@ -143,9 +141,9 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 3.5rem 1rem 2rem;
+            padding: 3.5rem 1rem 2.5rem;
             text-align: center;
-            gap: 1.4rem;
+            gap: 1.25rem;
         }
 
         .interactive {
@@ -159,12 +157,10 @@
             -webkit-backdrop-filter: blur(14px);
             border: 1.5px solid var(--glass-border);
             border-radius: 26px;
-            padding: 2rem 1.8rem;
+            padding: 1.8rem 1.6rem;
             max-width: 720px;
             width: 95%;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 123, 0, 0.25);
-            position: relative;
-            overflow: hidden;
         }
 
         .recipient-badge {
@@ -173,21 +169,21 @@
             padding: 0.35rem 1.4rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             box-shadow: 0 4px 15px rgba(255, 0, 127, 0.45);
         }
 
         h1 {
             font-family: 'Cinzel Decorative', cursive;
-            font-size: clamp(2rem, 5.5vw, 3.6rem);
+            font-size: clamp(2rem, 5.5vw, 3.4rem);
             background: linear-gradient(to right, #fff, var(--gold), var(--orange), var(--gold), #fff);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shine 4s linear infinite;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
 
         @keyframes shine {
@@ -195,20 +191,19 @@
         }
 
         .message {
-            font-size: clamp(0.95rem, 2.2vw, 1.15rem);
-            line-height: 1.65;
+            font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+            line-height: 1.6;
             color: #f3e8ff;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.1rem;
             font-weight: 300;
         }
 
-        /* Wish Theme Switcher */
         .wish-pills {
             display: flex;
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.1rem;
         }
 
         .pill-btn {
@@ -217,7 +212,7 @@
             color: #ffeb99;
             padding: 0.3rem 0.85rem;
             border-radius: 20px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             cursor: pointer;
             transition: all 0.2s ease;
         }
@@ -231,73 +226,65 @@
 
         .sender-box {
             border-top: 1px dashed rgba(255, 215, 0, 0.35);
-            padding-top: 1rem;
-            margin-top: 0.5rem;
+            padding-top: 0.9rem;
         }
 
+        /* Double-click / click trigger hint on sender */
         .sender {
             font-family: 'Cinzel Decorative', cursive;
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            font-size: clamp(1.3rem, 3.5vw, 1.75rem);
             color: var(--gold);
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
             letter-spacing: 1px;
+            cursor: pointer;
+            display: inline-block;
         }
 
-        /* Cracker Arsenal Dock */
+        /* Section Panels */
         .section-panel {
             background: rgba(15, 4, 32, 0.75);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 1.1rem 1.4rem;
+            padding: 1rem 1.3rem;
             max-width: 720px;
             width: 95%;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
 
         .panel-title {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--gold);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
         }
 
         .cracker-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 0.65rem;
+            grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+            gap: 0.6rem;
         }
 
         .cracker-btn {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 14px;
-            padding: 0.65rem 0.5rem;
+            padding: 0.6rem 0.4rem;
             color: #fff;
             cursor: pointer;
             transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.25rem;
+            gap: 0.2rem;
             font-family: 'Poppins', sans-serif;
         }
 
-        .cracker-btn span.icon {
-            font-size: 1.5rem;
-        }
-
-        .cracker-btn span.name {
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .cracker-btn span.desc {
-            font-size: 0.65rem;
-            color: #ccc;
-        }
+        .cracker-btn span.icon { font-size: 1.4rem; }
+        .cracker-btn span.name { font-size: 0.78rem; font-weight: 600; }
+        .cracker-btn span.desc { font-size: 0.62rem; color: #ccc; }
 
         .cracker-btn:hover, .cracker-btn.selected {
             background: linear-gradient(135deg, rgba(255, 123, 0, 0.35), rgba(255, 0, 127, 0.35));
@@ -306,25 +293,25 @@
             box-shadow: 0 0 18px rgba(255, 215, 0, 0.45);
         }
 
-        /* Interactive Festive Gifts & Treats Bar */
+        /* Festive Items */
         .festive-items {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 0.65rem;
         }
 
         .item-card {
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 14px;
-            padding: 0.65rem 1.1rem;
+            padding: 0.6rem 1rem;
             color: #fff;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            font-size: 0.88rem;
+            gap: 0.5rem;
+            font-size: 0.84rem;
             font-weight: 600;
             transition: all 0.25s ease;
         }
@@ -332,23 +319,28 @@
         .item-card:hover {
             background: var(--gold);
             color: #090214;
-            transform: scale(1.05);
+            transform: scale(1.04);
             box-shadow: 0 0 20px var(--gold);
         }
 
-        /* Interactive Diyas Tray */
+        .item-card.highlight-wish {
+            background: linear-gradient(45deg, rgba(255, 0, 127, 0.35), rgba(255, 123, 0, 0.35));
+            border-color: var(--gold);
+        }
+
+        /* Interactive Diyas */
         .diya-tray {
             display: flex;
             justify-content: center;
-            gap: clamp(0.8rem, 3.5vw, 2.2rem);
+            gap: clamp(0.7rem, 3vw, 2rem);
             flex-wrap: wrap;
-            padding: 0.6rem 0 0.2rem;
+            padding: 0.5rem 0 0.2rem;
         }
 
         .diya-wrapper {
             position: relative;
-            width: 72px;
-            height: 70px;
+            width: 68px;
+            height: 66px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -357,13 +349,11 @@
             transition: transform 0.3s ease;
         }
 
-        .diya-wrapper:hover {
-            transform: translateY(-5px) scale(1.08);
-        }
+        .diya-wrapper:hover { transform: translateY(-4px) scale(1.08); }
 
         .diya-base {
-            width: 68px;
-            height: 30px;
+            width: 64px;
+            height: 28px;
             background: linear-gradient(135deg, #c63f00, #7a1f00);
             border-radius: 0 0 40px 40px;
             position: relative;
@@ -377,16 +367,16 @@
             height: 10px;
             background: #555;
             position: absolute;
-            bottom: 28px;
+            bottom: 26px;
             z-index: 1;
             border-radius: 2px;
         }
 
         .flame {
             position: absolute;
-            bottom: 35px;
-            width: 18px;
-            height: 30px;
+            bottom: 33px;
+            width: 17px;
+            height: 28px;
             background: radial-gradient(ellipse at bottom, #fff 15%, #ffeb3b 45%, #ff9800 80%, transparent 100%);
             border-radius: 50% 50% 35% 35%;
             transform-origin: bottom center;
@@ -409,23 +399,23 @@
             100% { transform: scale(0.97, 1.05) rotate(2deg); }
         }
 
-        /* Bottom Action Controls */
+        /* Controls */
         .controls {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.7rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid var(--gold);
             color: #fff;
-            padding: 0.55rem 1.15rem;
+            padding: 0.55rem 1.1rem;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.83rem;
             cursor: pointer;
             backdrop-filter: blur(5px);
             transition: all 0.25s ease;
@@ -441,7 +431,30 @@
             box-shadow: 0 0 15px var(--gold);
         }
 
-        /* Floating Sky Lanterns & Sweets Popups */
+        /* Subtle Owner Vault Trigger */
+        .owner-trigger {
+            position: fixed;
+            bottom: 12px;
+            right: 14px;
+            z-index: 10;
+            background: rgba(15, 4, 32, 0.65);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: rgba(255, 215, 0, 0.7);
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: all 0.25s ease;
+        }
+
+        .owner-trigger:hover {
+            color: #000;
+            background: var(--gold);
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        /* Floating Elements */
         .sky-lantern {
             position: fixed;
             bottom: -60px;
@@ -456,8 +469,6 @@
             align-items: center;
             justify-content: center;
             font-size: 0.6rem;
-            color: #4a0e00;
-            font-weight: 700;
             animation: floatUp 11s linear forwards;
         }
 
@@ -469,7 +480,6 @@
 
         .floating-emoji {
             position: fixed;
-            font-size: 2rem;
             pointer-events: none;
             z-index: 15;
             animation: popFloat 2.2s ease-out forwards;
@@ -488,48 +498,54 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.78);
+            background: rgba(0, 0, 0, 0.82);
             backdrop-filter: blur(8px);
-            z-index: 20;
+            z-index: 25;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 1rem;
         }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
 
         .modal {
-            background: linear-gradient(145deg, #27094a, #100221);
+            background: linear-gradient(145deg, #27094a, #0e021f);
             border: 1.5px solid var(--gold);
             border-radius: 22px;
-            padding: 1.8rem;
-            max-width: 460px;
+            padding: 1.6rem;
+            max-width: 480px;
             width: 100%;
             color: #fff;
             box-shadow: 0 0 45px rgba(255, 215, 0, 0.35);
             text-align: center;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal.wide {
+            max-width: 780px;
+            text-align: left;
         }
 
         .modal h3 {
             color: var(--gold);
             font-family: 'Cinzel Decorative', cursive;
             margin-bottom: 0.8rem;
-            font-size: 1.45rem;
+            font-size: 1.4rem;
+            text-align: center;
         }
 
         .form-group {
-            margin-bottom: 0.9rem;
+            margin-bottom: 0.85rem;
             text-align: left;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #ddd;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.25rem;
         }
 
         .form-group input, .form-group textarea {
@@ -541,13 +557,100 @@
             color: #fff;
             font-family: 'Poppins', sans-serif;
             outline: none;
+            user-select: text;
         }
 
         .modal-actions {
             display: flex;
             justify-content: center;
             gap: 0.8rem;
-            margin-top: 1.2rem;
+            margin-top: 1.1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Owner Dashboard Styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 14px;
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        .stat-box .num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-box .lbl {
+            font-size: 0.75rem;
+            color: #ccc;
+        }
+
+        .tab-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            padding-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid transparent;
+            color: #ccc;
+            padding: 0.45rem 0.95rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab-btn.active {
+            background: var(--gold);
+            color: #090214;
+            font-weight: 700;
+        }
+
+        .log-list {
+            max-height: 320px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            padding-right: 0.3rem;
+        }
+
+        .log-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--gold);
+            border-radius: 8px;
+            padding: 0.7rem 0.9rem;
+            font-size: 0.82rem;
+            user-select: text;
+        }
+
+        .log-item .meta {
+            display: flex;
+            justify-content: space-between;
+            color: #ffeb99;
+            font-size: 0.74rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .log-item .body {
+            color: #fff;
+            line-height: 1.45;
         }
 
         .toast {
@@ -560,8 +663,8 @@
             padding: 0.7rem 1.5rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
-            z-index: 30;
+            font-size: 0.88rem;
+            z-index: 40;
             transition: transform 0.3s ease;
             box-shadow: 0 6px 25px rgba(0,0,0,0.6);
         }
@@ -575,7 +678,6 @@
 
     <div class="toran"></div>
 
-    <!-- Hanging Kandil Lanterns -->
     <div class="hanging-kandils">
         <div class="kandil"></div>
         <div class="kandil"></div>
@@ -615,12 +717,10 @@
         </g>
     </svg>
 
-    <!-- Interactive Fireworks Canvas -->
     <canvas id="fireworksCanvas"></canvas>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Greeting Card -->
+        <!-- Main Greeting Card -->
         <div class="greeting-card interactive">
             <div class="recipient-badge" id="recipientDisplay">Dear Friends & Family</div>
             <h1 id="titleDisplay">Shubh Deepavali</h1>
@@ -628,7 +728,6 @@
                 Wishing you and your loved ones a sparkling Diwali filled with joy, good health, and endless prosperity! Pick a firecracker from the arsenal below, click anywhere in the sky to burst it, and enjoy the sweets!
             </p>
 
-            <!-- Interactive Wish Theme Selector -->
             <div class="wish-pills">
                 <button class="pill-btn active" onclick="setWishTheme(0, this)">✨ Classic Blessing</button>
                 <button class="pill-btn" onclick="setWishTheme(1, this)">🪙 Wealth & Success</button>
@@ -637,12 +736,12 @@
             </div>
 
             <div class="sender-box">
-                <div style="font-size: 0.85rem; color: #ffd700; opacity: 0.85; margin-bottom: 0.2rem;">Warmest Wishes & Love From</div>
-                <div class="sender">✨ <span id="senderDisplay">Singh's Family ❤️</span> ✨</div>
+                <div style="font-size: 0.82rem; color: #ffd700; opacity: 0.85; margin-bottom: 0.2rem;">Warmest Wishes & Love From</div>
+                <div class="sender" ondblclick="openOwnerLogin()" title="Double-click for Owner Vault">✨ <span id="senderDisplay">Singh's Family ❤️</span> ✨</div>
             </div>
         </div>
 
-        <!-- Cracker Arsenal Selector -->
+        <!-- Cracker Arsenal -->
         <div class="section-panel interactive">
             <div class="panel-title">🧨 Select Your Cracker & Click Anywhere on Screen 🧨</div>
             <div class="cracker-grid">
@@ -674,26 +773,29 @@
             </div>
         </div>
 
-        <!-- Festive Interactive Items (Sweets, Sky Lanterns, Blessings, Rangoli) -->
+        <!-- Festive Treats & Guestbook Trigger -->
         <div class="section-panel interactive">
-            <div class="panel-title">🎁 Festive Treats & Traditions (Click to Interact) 🎁</div>
+            <div class="panel-title">🎁 Festive Treats & Send Wishes Back 🎁</div>
             <div class="festive-items">
+                <div class="item-card highlight-wish" onclick="openGuestbookModal()">
+                    <span>💌</span> Send Wishes to Singh's Family
+                </div>
                 <div class="item-card" onclick="shareMithai(event)">
-                    <span>🍬</span> Have Some Mithai (<span id="sweetCount">0</span>)
+                    <span>🍬</span> Have Mithai (<span id="sweetCount">0</span>)
                 </div>
                 <div class="item-card" onclick="releaseLantern()">
-                    <span>🏮</span> Release Sky Lantern
+                    <span>🏮</span> Sky Lantern
                 </div>
                 <div class="item-card" onclick="openShagun()">
-                    <span>🪙</span> Open Diwali Shagun
+                    <span>🪙</span> Diwali Shagun
                 </div>
                 <div class="item-card" onclick="cycleRangoli()">
-                    <span>🎨</span> Change Rangoli Glow
+                    <span>🎨</span> Rangoli Glow
                 </div>
             </div>
         </div>
 
-        <!-- Interactive Diyas Section -->
+        <!-- Interactive Diyas -->
         <div class="section-panel interactive">
             <div class="panel-title" id="diyaStatus">🪔 Light All 7 Auspicious Diyas (0/7 Lit) 🪔</div>
             <div class="diya-tray">
@@ -707,40 +809,50 @@
             </div>
         </div>
 
-        <!-- Master Controls -->
+        <!-- Controls -->
         <div class="controls interactive">
             <button class="btn" onclick="lightAllDiyas()">🔥 Light All Diyas</button>
             <button class="btn" onclick="grandFinale()">🎆 Grand Sky Finale</button>
             <button class="btn" id="soundBtn" onclick="toggleSound()">🔊 Sound: ON</button>
-            <button class="btn" onclick="openCustomModal()">✏️ Customize & Share Link</button>
+            <button class="btn" onclick="openCustomModal()">✏️ Modify & Share Link</button>
         </div>
     </div>
 
-    <!-- Shagun / Blessing Modal -->
-    <div class="modal-overlay interactive" id="shagunModal">
+    <!-- Owner Vault Lock Button -->
+    <button class="owner-trigger interactive" onclick="openOwnerLogin()" title="Owner Only Logs">🔒 Owner Logs</button>
+
+    <!-- 1. Send Wishes to Singh's Family Modal (Guestbook) -->
+    <div class="modal-overlay interactive" id="guestbookModal">
         <div class="modal">
-            <div style="font-size: 3.2rem; margin-bottom: 0.5rem;">🪙🙏🌸</div>
-            <h3>Auspicious Diwali Shagun</h3>
-            <p id="shagunText" style="line-height: 1.6; color: #ffeb99; margin-bottom: 1rem;">
-                May Goddess Lakshmi and Lord Ganesha bless your home with abundant fortune, harmony, and sparkling success this year!
+            <h3>💌 Send Diwali Wishes</h3>
+            <p style="font-size: 0.83rem; color: #ffeb99; margin-bottom: 1rem;">
+                Leave a personal Diwali blessing or note for <b>Singh's Family ❤️</b>!
             </p>
-            <div style="font-size: 0.9rem; color: #fff; font-weight: 600;">— With blessings from <span id="shagunSender">Singh's Family ❤️</span></div>
+            <div class="form-group">
+                <label>Your Name / Family Name *</label>
+                <input type="text" id="wishSenderName" placeholder="e.g., Verma Family / Rahul">
+            </div>
+            <div class="form-group">
+                <label>Your Diwali Wish *</label>
+                <textarea id="wishMessageText" rows="3" placeholder="Write your warm wishes here..."></textarea>
+            </div>
             <div class="modal-actions">
-                <button class="btn" style="background: var(--gold); color: #000; font-weight: 700;" onclick="closeShagun()">✨ Receive Blessings ✨</button>
+                <button class="btn" onclick="closeGuestbookModal()">Cancel</button>
+                <button class="btn" style="background: var(--gold); color: #000; font-weight: 700;" onclick="submitGuestWish()">✨ Send Blessing</button>
             </div>
         </div>
     </div>
 
-    <!-- Customizer Modal -->
+    <!-- 2. Modify & Share Modal (Tracked in Audit Log) -->
     <div class="modal-overlay interactive" id="customModal">
         <div class="modal">
-            <h3>Customize Greeting</h3>
+            <h3>✏️ Modify & Share Greeting</h3>
             <div class="form-group">
-                <label>Recipient Name (To)</label>
+                <label>Recipient Name (Who are you sending this to?)</label>
                 <input type="text" id="inputTo" placeholder="e.g., Dear Sharma Family, Priya">
             </div>
             <div class="form-group">
-                <label>Sender Name (From)</label>
+                <label>Sender Name (Your Name / Family Name)</label>
                 <input type="text" id="inputFrom" value="Singh's Family ❤️">
             </div>
             <div class="form-group">
@@ -754,13 +866,84 @@
         </div>
     </div>
 
+    <!-- 3. Shagun Modal -->
+    <div class="modal-overlay interactive" id="shagunModal">
+        <div class="modal">
+            <div style="font-size: 3rem; margin-bottom: 0.4rem;">🪙🙏🌸</div>
+            <h3>Auspicious Diwali Shagun</h3>
+            <p id="shagunText" style="line-height: 1.6; color: #ffeb99; margin-bottom: 1rem;"></p>
+            <div style="font-size: 0.9rem; color: #fff; font-weight: 600;">— With blessings from <span id="shagunSender">Singh's Family ❤️</span></div>
+            <div class="modal-actions">
+                <button class="btn" style="background: var(--gold); color: #000; font-weight: 700;" onclick="closeShagun()">✨ Receive Blessings ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Owner PIN Login Modal -->
+    <div class="modal-overlay interactive" id="ownerLoginModal">
+        <div class="modal" style="max-width: 360px;">
+            <h3>🔒 Owner Vault Access</h3>
+            <p style="font-size: 0.8rem; color: #ccc; margin-bottom: 1rem;">
+                Enter the Owner PIN to view Visitor Logs, Wishes Received, and Modify & Share History.
+            </p>
+            <div class="form-group">
+                <label>Owner Secret PIN</label>
+                <input type="password" id="ownerPinInput" placeholder="Enter PIN (Default: 2026)" onkeydown="if(event.key==='Enter') verifyOwnerPin()">
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeOwnerLogin()">Cancel</button>
+                <button class="btn" style="background: var(--gold); color: #000; font-weight: 700;" onclick="verifyOwnerPin()">🔓 Unlock Logs</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Owner Analytics & Logs Dashboard Modal -->
+    <div class="modal-overlay interactive" id="ownerDashboardModal">
+        <div class="modal wide">
+            <h3>👑 Singh's Family — Owner Log Vault</h3>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="num" id="statVisitors">0</div>
+                    <div class="lbl">👀 Total Visits</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="statWishes">0</div>
+                    <div class="lbl">💌 Wishes Received</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="statShares">0</div>
+                    <div class="lbl">🔗 Modified & Shared</div>
+                </div>
+            </div>
+
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchLogTab('wishes', this)">💌 Wishes Log</button>
+                <button class="tab-btn" onclick="switchLogTab('shares', this)">🔗 Modify & Share Log</button>
+                <button class="tab-btn" onclick="switchLogTab('visitors', this)">👀 Visitor Log</button>
+            </div>
+
+            <div class="log-list" id="ownerLogList"></div>
+
+            <div class="modal-actions" style="justify-content: space-between; margin-top: 1.4rem;">
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn" onclick="exportLogsJSON()">📥 Export JSON</button>
+                    <button class="btn" style="border-color: #ff4d4d; color: #ff9999;" onclick="clearAllLogs()">🗑️ Clear Local Logs</button>
+                </div>
+                <button class="btn" style="background: var(--gold); color: #000; font-weight: 700;" onclick="closeOwnerDashboard()">Close Vault</button>
+            </div>
+        </div>
+    </div>
+
     <div class="toast" id="toast">Notification</div>
 
     <script>
-        /* ==========================================
-           1. DEFAULT CONFIGURATION (SINGH'S FAMILY)
-           ========================================== */
+        /* =========================================================
+           1. OWNER CONFIGURATION & OPTIONAL CLOUD WEBHOOK SYNC
+           ========================================================= */
         const CONFIG = {
+            ownerPin: "2026", // <--- CHANGE YOUR SECRET OWNER PIN HERE
+            cloudWebhookUrl: "", // <--- OPTIONAL: Paste a Google Apps Script / Make.com / ntfy.sh URL here to sync across all phones!
             defaultRecipient: "Dear Friends & Family",
             defaultSender: "Singh's Family ❤️",
             defaultTitle: "Shubh Deepavali",
@@ -777,13 +960,302 @@
             ]
         };
 
+        /* =========================================================
+           2. LOGGING ENGINE (VISITORS, WISHES, MODIFY & SHARE)
+           ========================================================= */
+        const STORAGE_KEYS = {
+            visitors: 'diwali_singh_visitors_v1',
+            wishes: 'diwali_singh_wishes_v1',
+            shares: 'diwali_singh_shares_v1'
+        };
+
+        let activeLogTab = 'wishes';
+        let currentSessionId = Date.now() + '_' + Math.random().toString(36).substring(2, 7);
+
+        function getLogs(key) {
+            try {
+                return JSON.parse(localStorage.getItem(key)) || [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveLog(key, entry, eventType) {
+            const list = getLogs(key);
+            list.unshift(entry); // Newest first
+            localStorage.setItem(key, JSON.stringify(list.slice(0, 250)));
+
+            // Optional Cloud Sync for Cross-Device Tracking
+            if (CONFIG.cloudWebhookUrl) {
+                fetch(CONFIG.cloudWebhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ eventType, ...entry })
+                }).catch(() => {});
+            }
+        }
+
+        function getDeviceSummary() {
+            const ua = navigator.userAgent;
+            let device = "Desktop";
+            if (/android/i.test(ua)) device = "Android Phone";
+            else if (/iPad|iPhone|iPod/.test(ua)) device = "iPhone/iPad";
+            else if (/Macintosh/.test(ua)) device = "Mac";
+            else if (/Windows/.test(ua)) device = "Windows PC";
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Local";
+            return `${device} (${tz})`;
+        }
+
+        function formatTimestamp() {
+            return new Date().toLocaleString('en-IN', {
+                day: '2-digit', month: 'short', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            });
+        }
+
+        // Log Page Visit Automatically
+        function logVisitSession() {
+            const params = new URLSearchParams(window.location.search);
+            const viewedTo = params.get('to') || CONFIG.defaultRecipient;
+            const viewedFrom = params.get('from') || CONFIG.defaultSender;
+
+            const visitEntry = {
+                id: currentSessionId,
+                time: formatTimestamp(),
+                device: getDeviceSummary(),
+                viewedCardFor: viewedTo,
+                viewedCardFrom: viewedFrom,
+                referrer: document.referrer || "Direct / WhatsApp Link",
+                crackersBurst: 0,
+                diyasLit: 0,
+                sweetsTaken: 0
+            };
+            saveLog(STORAGE_KEYS.visitors, visitEntry, 'VISITOR_OPENED');
+        }
+
+        // Update current visitor's interaction counts in real time
+        function updateCurrentVisitorActivity(field) {
+            const list = getLogs(STORAGE_KEYS.visitors);
+            const idx = list.findIndex(item => item.id === currentSessionId);
+            if (idx !== -1) {
+                list[idx][field] = (list[idx][field] || 0) + 1;
+                localStorage.setItem(STORAGE_KEYS.visitors, JSON.stringify(list));
+            }
+        }
+
+        /* =========================================================
+           3. GUESTBOOK WISHES & MODIFY/SHARE TRACKING
+           ========================================================= */
+        function openGuestbookModal() {
+            document.getElementById('guestbookModal').classList.add('active');
+        }
+        function closeGuestbookModal() {
+            document.getElementById('guestbookModal').classList.remove('active');
+        }
+
+        function submitGuestWish() {
+            const sender = document.getElementById('wishSenderName').value.trim();
+            const message = document.getElementById('wishMessageText').value.trim();
+
+            if (!sender || !message) {
+                showToast("⚠️ Please enter both your name and your wish!");
+                return;
+            }
+
+            const wishEntry = {
+                time: formatTimestamp(),
+                fromName: sender,
+                wishText: message,
+                device: getDeviceSummary()
+            };
+
+            saveLog(STORAGE_KEYS.wishes, wishEntry, 'WISH_RECEIVED');
+            document.getElementById('wishSenderName').value = '';
+            document.getElementById('wishMessageText').value = '';
+            closeGuestbookModal();
+            grandFinale();
+            showToast(`🙏 Thank you, ${sender}! Your wishes for Singh's Family have been recorded!`);
+        }
+
+        function applyAndShare() {
+            const to = document.getElementById('inputTo').value.trim() || CONFIG.defaultRecipient;
+            const from = document.getElementById('inputFrom').value.trim() || CONFIG.defaultSender;
+            const msg = document.getElementById('inputMsg').value.trim() || CONFIG.wishes[0];
+
+            const newUrl = new URL(window.location.href.split('?')[0]);
+            newUrl.searchParams.set('to', to);
+            newUrl.searchParams.set('from', from);
+            newUrl.searchParams.set('msg', msg);
+
+            // Log who used the Modify & Share feature!
+            const shareEntry = {
+                time: formatTimestamp(),
+                modifiedBySender: from,
+                recipientSetTo: to,
+                customMessageUsed: msg,
+                generatedUrl: newUrl.toString(),
+                device: getDeviceSummary()
+            };
+            saveLog(STORAGE_KEYS.shares, shareEntry, 'MODIFIED_AND_SHARED');
+
+            window.history.pushState({}, '', newUrl);
+            loadCustomization();
+            closeCustomModal();
+
+            navigator.clipboard.writeText(newUrl.toString()).then(() => {
+                showToast("🔗 Custom link copied & logged! Ready to share on WhatsApp ✨");
+            }).catch(() => {
+                showToast("✨ Custom greeting applied & logged!");
+            });
+        }
+
+        /* =========================================================
+           4. OWNER PIN & DASHBOARD RENDERING
+           ========================================================= */
+        function openOwnerLogin() {
+            document.getElementById('ownerPinInput').value = '';
+            document.getElementById('ownerLoginModal').classList.add('active');
+            setTimeout(() => document.getElementById('ownerPinInput').focus(), 100);
+        }
+
+        function closeOwnerLogin() {
+            document.getElementById('ownerLoginModal').classList.remove('active');
+        }
+
+        function verifyOwnerPin() {
+            const entered = document.getElementById('ownerPinInput').value.trim();
+            if (entered === CONFIG.ownerPin) {
+                closeOwnerLogin();
+                openOwnerDashboard();
+                playChimeSound(880);
+            } else {
+                showToast("❌ Invalid Owner PIN!");
+            }
+        }
+
+        function openOwnerDashboard() {
+            renderOwnerDashboard();
+            document.getElementById('ownerDashboardModal').classList.add('active');
+        }
+
+        function closeOwnerDashboard() {
+            document.getElementById('ownerDashboardModal').classList.remove('active');
+        }
+
+        function switchLogTab(tabName, btnEl) {
+            activeLogTab = tabName;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+            renderOwnerDashboard();
+        }
+
+        function escapeHtml(str) {
+            return String(str || '').replace(/[&<>"']/g, m => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[m]));
+        }
+
+        function renderOwnerDashboard() {
+            const visitors = getLogs(STORAGE_KEYS.visitors);
+            const wishes = getLogs(STORAGE_KEYS.wishes);
+            const shares = getLogs(STORAGE_KEYS.shares);
+
+            document.getElementById('statVisitors').textContent = visitors.length;
+            document.getElementById('statWishes').textContent = wishes.length;
+            document.getElementById('statShares').textContent = shares.length;
+
+            const container = document.getElementById('ownerLogList');
+            container.innerHTML = '';
+
+            if (activeLogTab === 'wishes') {
+                if (wishes.length === 0) {
+                    container.innerHTML = `<div class="log-item"><div class="body">No guest wishes received yet. Click "💌 Send Wishes to Singh's Family" to test!</div></div>`;
+                    return;
+                }
+                wishes.forEach(w => {
+                    container.innerHTML += `
+                        <div class="log-item">
+                            <div class="meta">
+                                <span>💌 From: ${escapeHtml(w.fromName)}</span>
+                                <span>🕒 ${escapeHtml(w.time)}</span>
+                            </div>
+                            <div class="body">"${escapeHtml(w.wishText)}"</div>
+                            <div style="font-size:0.7rem; color:#aaa; margin-top:4px;">📱 ${escapeHtml(w.device)}</div>
+                        </div>`;
+                });
+            } else if (activeLogTab === 'shares') {
+                if (shares.length === 0) {
+                    container.innerHTML = `<div class="log-item"><div class="body">No one has used Modify & Share yet.</div></div>`;
+                    return;
+                }
+                shares.forEach(s => {
+                    container.innerHTML += `
+                        <div class="log-item">
+                            <div class="meta">
+                                <span>✍️ Modified By (From): <b>${escapeHtml(s.modifiedBySender)}</b> ➡️ To: <b>${escapeHtml(s.recipientSetTo)}</b></span>
+                                <span>🕒 ${escapeHtml(s.time)}</span>
+                            </div>
+                            <div class="body"><b>Custom Msg:</b> "${escapeHtml(s.customMessageUsed)}"</div>
+                            <div style="font-size:0.7rem; color:#aaa; margin-top:4px;">📱 ${escapeHtml(s.device)}</div>
+                        </div>`;
+                });
+            } else if (activeLogTab === 'visitors') {
+                if (visitors.length === 0) {
+                    container.innerHTML = `<div class="log-item"><div class="body">No visitor logs recorded yet.</div></div>`;
+                    return;
+                }
+                visitors.forEach(v => {
+                    container.innerHTML += `
+                        <div class="log-item">
+                            <div class="meta">
+                                <span>👀 Viewed Card For: <b>${escapeHtml(v.viewedCardFor)}</b> (From: ${escapeHtml(v.viewedCardFrom)})</span>
+                                <span>🕒 ${escapeHtml(v.time)}</span>
+                            </div>
+                            <div class="body">
+                                🧨 Crackers Burst: <b>${v.crackersBurst || 0}</b> | 
+                                🪔 Diyas Lit: <b>${v.diyasLit || 0}</b> | 
+                                🍬 Mithai Taken: <b>${v.sweetsTaken || 0}</b>
+                            </div>
+                            <div style="font-size:0.7rem; color:#aaa; margin-top:4px;">📱 ${escapeHtml(v.device)} | 🔗 Source: ${escapeHtml(v.referrer)}</div>
+                        </div>`;
+                });
+            }
+        }
+
+        function exportLogsJSON() {
+            const payload = {
+                exportedAt: formatTimestamp(),
+                wishesReceived: getLogs(STORAGE_KEYS.wishes),
+                modifyAndShareLogs: getLogs(STORAGE_KEYS.shares),
+                visitorLogs: getLogs(STORAGE_KEYS.visitors)
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Singhs_Family_Diwali_Logs_${Date.now()}.json`;
+            a.click();
+            showToast("📥 Logs exported as JSON file!");
+        }
+
+        function clearAllLogs() {
+            if (confirm("Are you sure you want to clear all saved logs on this browser?")) {
+                localStorage.removeItem(STORAGE_KEYS.visitors);
+                localStorage.removeItem(STORAGE_KEYS.wishes);
+                localStorage.removeItem(STORAGE_KEYS.shares);
+                renderOwnerDashboard();
+                showToast("🗑️ Local logs cleared!");
+            }
+        }
+
+        /* =========================================================
+           5. CORE GREETING, AUDIO & FIRECRACKER ENGINE
+           ========================================================= */
         let currentCracker = 'skyshot';
         let sweetsEaten = 0;
         let rangoliHue = 0;
 
-        /* ==========================================
-           2. CUSTOMIZATION & WISH THEME SWITCHER
-           ========================================== */
         function loadCustomization() {
             const params = new URLSearchParams(window.location.search);
             const to = params.get('to') || CONFIG.defaultRecipient;
@@ -811,37 +1283,14 @@
         function openCustomModal() { document.getElementById('customModal').classList.add('active'); }
         function closeCustomModal() { document.getElementById('customModal').classList.remove('active'); }
 
-        function applyAndShare() {
-            const to = document.getElementById('inputTo').value.trim() || CONFIG.defaultRecipient;
-            const from = document.getElementById('inputFrom').value.trim() || CONFIG.defaultSender;
-            const msg = document.getElementById('inputMsg').value.trim() || CONFIG.wishes[0];
-
-            const newUrl = new URL(window.location.href.split('?')[0]);
-            newUrl.searchParams.set('to', to);
-            newUrl.searchParams.set('from', from);
-            newUrl.searchParams.set('msg', msg);
-
-            window.history.pushState({}, '', newUrl);
-            loadCustomization();
-            closeCustomModal();
-
-            navigator.clipboard.writeText(newUrl.toString()).then(() => {
-                showToast("Personalized link copied! Ready to paste on WhatsApp ✨");
-            }).catch(() => {
-                showToast("Updated! Copy the link from your browser address bar ✨");
-            });
-        }
-
         function showToast(text) {
             const toast = document.getElementById('toast');
             toast.textContent = text;
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3200);
+            setTimeout(() => toast.classList.remove('show'), 3300);
         }
 
-        /* ==========================================
-           3. SYNTHESIZED SOUND ENGINE (NO MP3 NEEDED)
-           ========================================== */
+        // Web Audio Synthesizer
         let soundEnabled = true;
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         let audioCtx;
@@ -869,15 +1318,12 @@
                 }
                 const noise = audioCtx.createBufferSource();
                 noise.buffer = buffer;
-
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'bandpass';
                 filter.frequency.value = pitch + Math.random() * 300;
-
                 const gain = audioCtx.createGain();
                 gain.gain.setValueAtTime(Math.min(0.4, 0.25 * intensity), audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
-
                 noise.connect(filter);
                 filter.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -889,23 +1335,18 @@
             if (!soundEnabled) return;
             try {
                 initAudio();
-                const bufferSize = audioCtx.sampleRate * 1.2;
+                const bufferSize = audioCtx.sampleRate * 1.1;
                 const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                 const data = buffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = (Math.random() * 2 - 1) * 0.3;
-                }
+                for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.3;
                 const noise = audioCtx.createBufferSource();
                 noise.buffer = buffer;
-
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'highpass';
                 filter.frequency.value = 1800;
-
                 const gain = audioCtx.createGain();
                 gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.005, audioCtx.currentTime + 1.2);
-
+                gain.gain.exponentialRampToValueAtTime(0.005, audioCtx.currentTime + 1.1);
                 noise.connect(filter);
                 filter.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -922,10 +1363,8 @@
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(freq * 1.5, audioCtx.currentTime + 0.4);
-
                 gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.45);
-
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
                 osc.start();
@@ -933,9 +1372,6 @@
             } catch (e) {}
         }
 
-        /* ==========================================
-           4. FESTIVE ITEMS (MITHAI, LANTERN, SHAGUN)
-           ========================================== */
         const mithaiList = [
             { emoji: '🔶', name: 'Kaju Katli' },
             { emoji: '🟠', name: 'Motichoor Ladoo' },
@@ -946,6 +1382,7 @@
 
         function shareMithai(e) {
             sweetsEaten++;
+            updateCurrentVisitorActivity('sweetsTaken');
             document.getElementById('sweetCount').textContent = sweetsEaten;
             const sweet = mithaiList[Math.floor(Math.random() * mithaiList.length)];
             playChimeSound(700 + Math.random() * 200);
@@ -962,7 +1399,7 @@
             document.body.appendChild(el);
             setTimeout(() => el.remove(), 2200);
 
-            showToast(` Singh's Family served you warm ${sweet.name}! ${sweet.emoji}`);
+            showToast(`🍬 Singh's Family served you warm ${sweet.name}!`);
         }
 
         function releaseLantern() {
@@ -977,7 +1414,7 @@
                     setTimeout(() => lantern.remove(), 11000);
                 }, i * 350);
             }
-            showToast("🏮 Sky Lanterns released with your wishes!");
+            showToast("🏮 Sky Lanterns released into the night sky!");
         }
 
         function openShagun() {
@@ -989,23 +1426,19 @@
             triggerAnar(window.innerWidth * 0.75, window.innerHeight * 0.75);
         }
 
-        function closeShagun() {
-            document.getElementById('shagunModal').classList.remove('active');
-        }
+        function closeShagun() { document.getElementById('shagunModal').classList.remove('active'); }
 
         function cycleRangoli() {
             rangoliHue = (rangoliHue + 65) % 360;
             document.getElementById('rangoliSvg').style.filter = `hue-rotate(${rangoliHue}deg) drop-shadow(0 0 15px gold)`;
             playChimeSound(600);
-            showToast("🎨 Rangoli vibrant aura updated!");
+            showToast("🎨 Rangoli aura updated!");
         }
 
-        /* ==========================================
-           5. INTERACTIVE DIYAS
-           ========================================== */
         function toggleDiya(el) {
             el.classList.toggle('lit');
             if (el.classList.contains('lit')) {
+                updateCurrentVisitorActivity('diyasLit');
                 const rect = el.getBoundingClientRect();
                 spawnBurst(rect.left + rect.width / 2, rect.top + 15, '#ffd700', 22, 0.5);
                 playChimeSound(520 + Math.random() * 220);
@@ -1019,6 +1452,7 @@
                 setTimeout(() => {
                     if (!diya.classList.contains('lit')) {
                         diya.classList.add('lit');
+                        updateCurrentVisitorActivity('diyasLit');
                         const rect = diya.getBoundingClientRect();
                         spawnBurst(rect.left + rect.width / 2, rect.top + 15, '#ffd700', 22, 0.5);
                         playChimeSound(440 + idx * 75);
@@ -1040,9 +1474,7 @@
             }
         }
 
-        /* ==========================================
-           6. CRACKER ARSENAL & PHYSICS ENGINE
-           ========================================== */
+        // Canvas Physics Engine
         const canvas = document.getElementById('fireworksCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -1060,28 +1492,18 @@
             document.querySelectorAll('.cracker-btn').forEach(b => b.classList.remove('selected'));
             btnEl.classList.add('selected');
             playChimeSound(500);
-            showToast(`Selected: ${btnEl.querySelector('.name').textContent} — Click anywhere in the sky!`);
+            showToast(`Selected: ${btnEl.querySelector('.name').textContent} — Click the sky!`);
         }
 
         class Particle {
             constructor(x, y, vx, vy, color, gravity = 0.06, decay = 0.015, size = 2.5) {
-                this.x = x;
-                this.y = y;
-                this.vx = vx;
-                this.vy = vy;
-                this.color = color;
-                this.gravity = gravity;
-                this.decay = decay;
-                this.alpha = 1;
-                this.size = size;
+                this.x = x; this.y = y; this.vx = vx; this.vy = vy;
+                this.color = color; this.gravity = gravity; this.decay = decay;
+                this.alpha = 1; this.size = size;
             }
             update() {
-                this.vx *= 0.985;
-                this.vy *= 0.985;
-                this.vy += this.gravity;
-                this.x += this.vx;
-                this.y += this.vy;
-                this.alpha -= this.decay;
+                this.vx *= 0.985; this.vy *= 0.985; this.vy += this.gravity;
+                this.x += this.vx; this.y += this.vy; this.alpha -= this.decay;
             }
             draw() {
                 ctx.save();
@@ -1096,7 +1518,6 @@
             }
         }
 
-        // Standard Radial Burst
         function spawnBurst(x, y, colorOverride = null, count = 70, speedScale = 1) {
             const c1 = colorOverride || palette[Math.floor(Math.random() * palette.length)];
             const c2 = palette[Math.floor(Math.random() * palette.length)];
@@ -1104,18 +1525,12 @@
                 const angle = Math.random() * Math.PI * 2;
                 const speed = (Math.random() * 6.5 + 1.5) * speedScale;
                 particles.push(new Particle(
-                    x, y,
-                    Math.cos(angle) * speed,
-                    Math.sin(angle) * speed,
-                    i % 2 === 0 ? c1 : c2,
-                    0.06,
-                    Math.random() * 0.016 + 0.012,
-                    Math.random() * 2.8 + 1.5
+                    x, y, Math.cos(angle) * speed, Math.sin(angle) * speed,
+                    i % 2 === 0 ? c1 : c2, 0.06, Math.random() * 0.016 + 0.012, Math.random() * 2.8 + 1.5
                 ));
             }
         }
 
-        // 1. Sky Rocket
         function triggerSkyRocket(targetX, targetY) {
             let curY = canvas.height;
             const step = (curY - targetY) / 18;
@@ -1130,7 +1545,6 @@
             }, 16);
         }
 
-        // 2. Flowerpot (Anar) Fountain
         function triggerAnar(x, y) {
             playFountainSound();
             let ticks = 0;
@@ -1146,31 +1560,24 @@
             }, 30);
         }
 
-        // 3. Ground Chakri (Spinning Wheel)
         function triggerChakri(x, y) {
             playFountainSound();
-            let angle = 0;
-            let ticks = 0;
+            let angle = 0; let ticks = 0;
             const chakriInterval = setInterval(() => {
-                ticks++;
-                angle += 0.55;
+                ticks++; angle += 0.55;
                 for (let arm = 0; arm < 3; arm++) {
                     const a = angle + (arm * (Math.PI * 2 / 3));
-                    const vx = Math.cos(a) * 6.5;
-                    const vy = Math.sin(a) * 6.5;
                     const col = arm === 0 ? '#00e676' : (arm === 1 ? '#ffd700' : '#ff007f');
-                    particles.push(new Particle(x, y, vx, vy, col, 0.01, 0.028, 2.6));
+                    particles.push(new Particle(x, y, Math.cos(a) * 6.5, Math.sin(a) * 6.5, col, 0.01, 0.028, 2.6));
                 }
                 if (ticks > 45) clearInterval(chakriInterval);
             }, 25);
         }
 
-        // 4. 1000-Wala Ladi (Chain Cracker + Screen Shake)
         function triggerLadi(x, y) {
             document.body.classList.remove('shake');
             void document.body.offsetWidth;
             document.body.classList.add('shake');
-
             for (let i = 0; i < 12; i++) {
                 setTimeout(() => {
                     const ox = x + (Math.random() - 0.5) * 180;
@@ -1182,28 +1589,21 @@
             }
         }
 
-        // 5. Heavy Phuljhari Sparkler Burst
         function triggerSparkler(x, y) {
             playFountainSound();
             for (let i = 0; i < 65; i++) {
                 const angle = Math.random() * Math.PI * 2;
                 const speed = Math.random() * 5 + 0.5;
                 particles.push(new Particle(
-                    x, y,
-                    Math.cos(angle) * speed,
-                    Math.sin(angle) * speed,
-                    Math.random() > 0.3 ? '#ffd700' : '#ffffff',
-                    0.03,
-                    0.03,
-                    1.8
+                    x, y, Math.cos(angle) * speed, Math.sin(angle) * speed,
+                    Math.random() > 0.3 ? '#ffd700' : '#ffffff', 0.03, 0.03, 1.8
                 ));
             }
         }
 
-        // Trigger Selected Cracker on Canvas Click
         canvas.addEventListener('pointerdown', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
+            updateCurrentVisitorActivity('crackersBurst');
+            const x = e.clientX; const y = e.clientY;
             if (currentCracker === 'skyshot') triggerSkyRocket(x, y);
             else if (currentCracker === 'anar') triggerAnar(x, y);
             else if (currentCracker === 'chakri') triggerChakri(x, y);
@@ -1211,15 +1611,12 @@
             else if (currentCracker === 'sparkler') triggerSparkler(x, y);
         });
 
-        // Continuous Phuljhari Cursor Trail
         window.addEventListener('pointermove', (e) => {
             const count = currentCracker === 'sparkler' ? 4 : 1;
             for (let i = 0; i < count; i++) {
                 if (Math.random() > 0.25) {
                     particles.push(new Particle(
-                        e.clientX, e.clientY,
-                        (Math.random() - 0.5) * 2.2,
-                        (Math.random() - 0.5) * 2.2,
+                        e.clientX, e.clientY, (Math.random() - 0.5) * 2.2, (Math.random() - 0.5) * 2.2,
                         '#ffd700', 0.03, 0.045, 1.8
                     ));
                 }
@@ -1240,22 +1637,17 @@
             triggerAnar(canvas.width * 0.82, canvas.height * 0.85);
         }
 
-        // Main Animation Loop
         function animate() {
             ctx.fillStyle = 'rgba(7, 1, 18, 0.22)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             for (let i = particles.length - 1; i >= 0; i--) {
                 particles[i].update();
                 particles[i].draw();
-                if (particles[i].alpha <= 0) {
-                    particles.splice(i, 1);
-                }
+                if (particles[i].alpha <= 0) particles.splice(i, 1);
             }
             requestAnimationFrame(animate);
         }
 
-        // Background Ambient Fireworks
         setInterval(() => {
             if (document.hidden) return;
             const x = Math.random() * (canvas.width * 0.8) + canvas.width * 0.1;
@@ -1264,8 +1656,9 @@
             playBoomSound(0.6, 480);
         }, 2000);
 
-        // Initialize
+        // Initialize App & Record Visit
         loadCustomization();
+        logVisitSession();
         animate();
     </script>
 </body>
